@@ -5,6 +5,7 @@ int main() {
     int i, j;
     float suma, promedio;
     float mayor, menor;
+    int aprobados, reprobados;
 
     printf("SISTEMA DE GESTION DE CALIFICACIONES\n");
     printf("------------------------------------\n");
@@ -70,6 +71,8 @@ int main() {
         suma = 0;
         mayor = notas[0][j];
         menor = notas[0][j];
+        aprobados = 0;
+        reprobados = 0;
 
         for (i = 0; i < estudiantes; i++) {
             suma = suma + notas[i][j];
@@ -81,6 +84,12 @@ int main() {
             if (notas[i][j] < menor) {
                 menor = notas[i][j];
             }
+
+            if (notas[i][j] >= 6) {
+                aprobados = aprobados + 1;
+            } else {
+                reprobados = reprobados + 1;
+            }
         }
 
         promedio = suma / estudiantes;
@@ -89,6 +98,8 @@ int main() {
         printf("Promedio: %.2f\n", promedio);
         printf("Nota mas alta: %.2f\n", mayor);
         printf("Nota mas baja: %.2f\n", menor);
+        printf("Aprobados: %d\n", aprobados);
+        printf("Reprobados: %d\n", reprobados);
     }
 
     return 0;
