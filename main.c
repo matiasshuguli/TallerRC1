@@ -63,5 +63,33 @@ int main() {
         printf("Nota mas baja: %.2f\n", menor);
     }
 
+    printf("\n\nRESULTADOS POR ASIGNATURA\n");
+    printf("-------------------------\n");
+
+    for (j = 0; j < 3; j++) {
+        suma = 0;
+        mayor = notas[0][j];
+        menor = notas[0][j];
+
+        for (i = 0; i < estudiantes; i++) {
+            suma = suma + notas[i][j];
+
+            if (notas[i][j] > mayor) {
+                mayor = notas[i][j];
+            }
+
+            if (notas[i][j] < menor) {
+                menor = notas[i][j];
+            }
+        }
+
+        promedio = suma / estudiantes;
+
+        printf("\nAsignatura %d\n", j + 1);
+        printf("Promedio: %.2f\n", promedio);
+        printf("Nota mas alta: %.2f\n", mayor);
+        printf("Nota mas baja: %.2f\n", menor);
+    }
+
     return 0;
 }
